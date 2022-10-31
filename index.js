@@ -11,12 +11,13 @@ const app = Express();
 app.use(
     Cors({
         origin: '*',
-    }
-))
+    })
+)
 
 // Endpoint for extract and transform XML to JSON format and return to client
 app.get('/:URL', async (req, res, next) => {
     const payload = req.params.URL;
+    console.log(payload)
     const data = await axios
     .get(payload)
     .then((response) => {
